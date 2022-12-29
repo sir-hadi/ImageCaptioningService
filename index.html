@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <form
+      id="myFormId"
+      action="http://127.0.0.1:8000/image"
+      enctype="multipart/form-data"
+      method="post"
+    >
+      <input name="files" type="file" multiple />
+      <button type="submit">SubmitAction</button>
+    </form>
+  </body>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://127.0.0.1:8000/image"); 
+    xhr.onload = function(event){ 
+        alert("Success, server responded with: " + event.target.response); // raw response
+    }; 
+    // or onerror, onabort
+    // var formData = new FormData(document.getElementById("myFormId")); 
+    // xhr.send(formData);
+  </script>
+</html>
